@@ -1,0 +1,20 @@
+[
+    {
+        "identifiant": 1,
+        "titre": "You want it darker",
+        "artiste": "Leonard Cohen",
+        "statut": "Disponible",
+        "emprunteur": "",
+        "dateEmprunt": "",
+        "etat": "OK"
+    },
+    {
+        "identifiant": 2,
+        "titre": "Electric",
+        "artiste": "The Cult",
+        "statut": "Indisponible",
+        "emprunteur": "jerome",
+        "dateEmprunt": "2024-10-24",
+        "etat": "OK"
+    }
+]
