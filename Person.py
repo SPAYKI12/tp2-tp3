@@ -1,34 +1,32 @@
-from abc import ABC, abstractmethod
 from datetime import date
 
-class Person(ABC):
-    def __init__(self, login, pwd, last_name, first_name, id):
+class Person:
+    def __init__(self, login, password, last_name, first_name, user_id):
         self.__login = login
-        self.__pwd = pwd
+        self.__password = password
         self.__last_name = last_name
         self.__first_name = first_name
-        self.__id = id
+        self.__user_id = user_id
 
     def authenticate(self, login, password):
-        if self.__login == login and self.__pwd == password:
-            print(f"{self.__class__.__name__} {self.__login} authenticated")
-            return True
-        return False
-
-    def modify_password(self, new_password):
-        self.__pwd = new_password
+        return self.__login == login and self.__password == password
 
 class Administrator(Person):
-    pass
+    def __init__(self, login, password, last_name, first_name, user_id):
+        super().__init__(login, password, last_name, first_name, user_id)
 
 class User(Person):
-    def __init__(self, login, pwd, last_name, first_name, id, mail, date_inscription):
-        super().__init__(login, pwd, last_name, first_name, id)
-        self.__mail = mail
-        self.__date_inscription = date_inscription
+    def __init__(self, login, password, last_name, first_name, user_id, email, registration_date):
+        super().__init__(login, password, last_name, first_name, user_id)
+        self.__email = email
+        self.__registration_date = registration_date
+        self.__borrow_history = []
 
+    def add_borrow(self, borrow):
+        self.__borrow_history.append(borrow)
 
+    def view_borrow_history(self):
+        return [str(borrow) for borrow in self.__borrow_history]
 
-
-
-
+    def __str__(self):
+        return f"User: {self.__login}, Email: {self.__email}, Registered on: {self.__registration_date}"
