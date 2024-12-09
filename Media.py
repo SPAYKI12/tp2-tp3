@@ -2,8 +2,8 @@ from abc import abstractmethod, ABC
 
 
 class Media(ABC):
-    def __init__(self, title, id, state, return_period_days=7):
-        self.__return_period_days = return_period_days
+    def __init__(self, title, id, state):
+        self.__return_period_days = 7
         self.__title = title
         self.__id = id
         self.__state = state
@@ -16,7 +16,11 @@ class Media(ABC):
     def return_media(self):
         pass
 
-class Livre(Media):
+class Book(Media):
+    def __init__(self, title, id, state):
+        super().__init__(title, id, state)
+        self.__return_period_days = 21
+
     def borrow(self):
         return f"Livre '{self.__title}' borrowed"
 
