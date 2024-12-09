@@ -1,3 +1,4 @@
 personne:
-  login: root
-  password: root
+  0:
+    login: root
+    password: root

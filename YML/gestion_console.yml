@@ -1,42 +1,41 @@
-authentication:
-  start: "Bienvenue, veuillez vous connectez:"
-  login: "Login: "
-  password: "Mot de passe: "
-  invalid-login: "Login ou mot de passe incorrect."
-  password-change-success: "Mot de passe changé avec succès."
+# Authentification
+authentification:
+  success_admin: "Connexion réussie en tant qu'administrateur."
+  failure_admin: "Échec de la connexion."
+  login_prompt: "Login: "
+  password_prompt: "Mot de passe: "
 
-administrator:
-  command-list:
-    0: "Sortie du programme"
-    1: "Changez votre mot de passe"
-    2: "Vérifier l'historique d'un utilisateur"
-    3: "Avertir un utilisateur de son dépassement du délai"
-    4: "Retourner un média en vérifiant son état"
-    5: "Enregistrer un nouvel administrateur ou utilisateur"
-  user-not-found: "Utilisateur non trouvé."
-  warn-user: "Avertir l'utilisateur :"
-  overdue-media: "Le média est en retard !"
-  return-media-with-delay: "Retour du média avec retard."
-  return-media-on-time: "Retour du média dans les délais."
-  registration-success: "Utilisateur enregistré avec succès."
+# Usager
+usager:
+  inscription_prompt: "Entrez le login de l'usager à inscrire: "
+  new_password_prompt: "Entrez le nouveau mot de passe de l'usager: "
+  historique_title: "Historique des emprunts:"
+  emprunt_prompt: "Entrez le titre du média à emprunter: "
+  emprunt_success: "Média emprunté: "
 
-user:
-  command-list:
-    0: "Sortie du programme"
-    1: "Changez votre mot de passe"
-    2: "Afficher votre historique d'emprunts"
-    3: "Emprunter un média"
-  password:
-    first-time: "C'est votre première connexion, vous devez changer votre mot de passe."
-    regex-wrong: "Votre mot de passe doit contenir au moins une majuscule, une minuscule, un chiffre et un caractère spécial."
-  no-borrow-history: "Aucun emprunt trouvé."
-  borrow-success: "Média emprunté avec succès."
+# Administrateur
+admin:
+  inscrit_success: "Usager inscrit avec succès."
+  erreur_permission: "Vous devez être administrateur pour réaliser cette action."
 
+# Médias
 media:
-  overdue-warning: "Ce média est en retard et doit être retourné."
-  media-checked: "Le média a été vérifié avec succès."
+  not_found: "Le média spécifié n'a pas été trouvé."
+  etat_ok: "État OK"
+  retard: "Ce média est en retard. Veuillez le retourner immédiatement."
+  livre_retour: "Retour du livre dans 3 semaines."
+  cd_vinyle_retour: "Retour du CD/Vinyle dans 1 semaine."
 
-error:
-  invalid-choice: "Choix invalide, veuillez réessayer."
-  invalid-media-type: "Type de média invalide."
-  user-already-exists: "Un utilisateur avec ce login existe déjà."
+# Erreurs générales
+erreurs:
+  media_invalide: "Le média que vous avez choisi est invalide."
+  action_interdite: "Cette action n'est pas autorisée."
+  erreur_fichier: "Impossible de charger ou enregistrer le fichier."
+
+# Messages généraux
+generaux:
+  bienvenue: "Bienvenue dans la médiathèque!"
+  quitter: "Merci et à bientôt!"
+  menu_principal: "Que voulez-vous faire?"
+  choix_valide: "Choix valide!"
+  choix_invalide: "Choix invalide, veuillez réessayer."
