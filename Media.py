@@ -34,7 +34,7 @@ class CD(Media):
     def return_media(self):
         return f"CD '{self._Media__title}' returned"
 
-class Vinyles(Media):
+class Vinyl(Media):
     def borrow(self):
         return f"Vinyle '{self._Media__title}' borrowed"
 

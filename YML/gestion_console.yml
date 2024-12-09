@@ -1,4 +1,5 @@
 authentication:
+  start: "Bienvenue, veuillez vous connectez:"
   login: "Login: "
   password: "Mot de passe: "
   invalid-login: "Login ou mot de passe incorrect."
