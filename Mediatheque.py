@@ -6,7 +6,7 @@ class Mediatheque:
     def __init__(self):
         self.__history = []
         self.__users = []
-        self.__media = []
+        self    .__media = []
 
     def check_history(self, targetId):
         return self.__history
@@ -27,9 +27,3 @@ class Mediatheque:
     def register_person(self, person):
         self.__users.append(person)
         return f"Person {person._Person__login} registered"
-
-
-
-
-
-
