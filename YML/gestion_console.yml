@@ -1,0 +1,41 @@
+authentication:
+  login: "Login: "
+  password: "Mot de passe: "
+  invalid-login: "Login ou mot de passe incorrect."
+  password-change-success: "Mot de passe changé avec succès."
+
+administrator:
+  command-list:
+    0: "Sortie du programme"
+    1: "Changez votre mot de passe"
+    2: "Vérifier l'historique d'un utilisateur"
+    3: "Avertir un utilisateur de son dépassement du délai"
+    4: "Retourner un média en vérifiant son état"
+    5: "Enregistrer un nouvel administrateur ou utilisateur"
+  user-not-found: "Utilisateur non trouvé."
+  warn-user: "Avertir l'utilisateur :"
+  overdue-media: "Le média est en retard !"
+  return-media-with-delay: "Retour du média avec retard."
+  return-media-on-time: "Retour du média dans les délais."
+  registration-success: "Utilisateur enregistré avec succès."
+
+user:
+  command-list:
+    0: "Sortie du programme"
+    1: "Changez votre mot de passe"
+    2: "Afficher votre historique d'emprunts"
+    3: "Emprunter un média"
+  password:
+    first-time: "C'est votre première connexion, vous devez changer votre mot de passe."
+    regex-wrong: "Votre mot de passe doit contenir au moins une majuscule, une minuscule, un chiffre et un caractère spécial."
+  no-borrow-history: "Aucun emprunt trouvé."
+  borrow-success: "Média emprunté avec succès."
+
+media:
+  overdue-warning: "Ce média est en retard et doit être retourné."
+  media-checked: "Le média a été vérifié avec succès."
+
+error:
+  invalid-choice: "Choix invalide, veuillez réessayer."
+  invalid-media-type: "Type de média invalide."
+  user-already-exists: "Un utilisateur avec ce login existe déjà."

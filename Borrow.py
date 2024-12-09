@@ -1,7 +1,6 @@
 # Borrow class
 from datetime import date
 
-
 class Borrow:
     def __init__(self, borrow_date, return_date, media, user, attribute):
         self.__borrow_date = borrow_date

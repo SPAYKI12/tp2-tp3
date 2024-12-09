@@ -1,5 +1,4 @@
 # Mediatheque class
-from Person import Administrator
 
 
 class Mediatheque:
