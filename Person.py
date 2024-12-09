@@ -11,8 +11,9 @@ class Person(ABC):
 
     def authenticate(self, login, password):
         if self.__login == login and self.__pwd == password:
-            return f"{self.__class__.__name__} {self.__login} authenticated"
-        return "Authentication failed"
+            print(f"{self.__class__.__name__} {self.__login} authenticated")
+            return True
+        return False
 
     def modify_password(self, new_password):
         self.__pwd = new_password
@@ -25,4 +26,9 @@ class User(Person):
         super().__init__(login, pwd, last_name, first_name, id)
         self.__mail = mail
         self.__date_inscription = date_inscription
+
+
+
+
+
 
