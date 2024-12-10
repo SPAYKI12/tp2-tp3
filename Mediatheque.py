@@ -23,15 +23,18 @@ class Mediatheque:
         return self.__media
 
     def send_email(self, recipient, subject, message):
-        """Sends an email using Free SMTP Servers.
+        """Envoie un email via Gmail SMTP.
 
         Args:
-          recipient: The recipient's email address.
-          subject: The subject of the email.
-          message: The email message body.
+          recipient: L'adresse email du destinataire.
+          subject: L'objet de l'email.
+          message: Le corps du message de l'email.
+
+          Ne marche pas car nécessite validation en 2 étapes avec numéro
         """
 
-        sender_email = "your_email@example.com"  # Replace with your email
+        sender_email = "testwarn7@gmail.com"  # Remplacez par votre adresse
+        sender_password = "123456456Aa&&"  # Remplacez par votre mot de passe d'application ou votre mot de passe Gmail si vous avez autorisé l'accès moins sécurisé
 
         msg = MIMEText(message)
         msg['Subject'] = subject
@@ -39,12 +42,13 @@ class Mediatheque:
         msg['To'] = recipient
 
         try:
-            with smtplib.SMTP('smtp.freesmtpservers.com', 25) as server:
+            with smtplib.SMTP_SSL('smtp.gmail.com',
+                                  465) as server:  # Ou utilisez smtplib.SMTP('smtp.gmail.com', 587) avec server.starttls()
+                server.login(sender_email, sender_password)
                 server.sendmail(sender_email, recipient, msg.as_string())
-            print(f"Email sent to {recipient}")
+            print(f"Email envoyé à {recipient}")
         except Exception as e:
-            print(f"Error sending email: {e}")
-
+            print(f"Erreur lors de l'envoi de l'email : {e}")
     def media_est_disponible(self, media):
         """Vérifie si un média est disponible en consultant l'historique des emprunts.
 
