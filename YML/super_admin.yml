@@ -1,4 +1,3 @@
-personne:
-  0:
-    login: root
-    password: root
+super_admin:
+  login: root
+  password: root

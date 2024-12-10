@@ -1,24 +1,37 @@
 from abc import ABC, abstractmethod
 from datetime import date, timedelta
 
+
 class Media(ABC):
-    def __init__(self, title, media_id, state):
-        self.__title = title
-        self.__id = media_id
-        self.__state = state
-        self.__return_period_days = 7  # Valeur par défaut pour CD et Vinyl
+    def __init__(self, title, id, state, author):
+        self._title = title
+        self._id = id
+        self._state = state
+        self._author = author
+
+    def to_json(self):
+        return {
+            "title": self._title,
+            "id": self._id,
+            "state": self._state,
+            "author": self._author
+        }
+
+    @classmethod
+    def from_json(cls, data):
+        return cls(data["title"], data["id"], data["state"])
 
     @property
     def title(self):
-        return self.__title
+        return self._title
 
     @property
     def id(self):
-        return self.__id
+        return self._id
 
     @property
     def state(self):
-        return self.__state
+        return self._state
 
     @abstractmethod
     def borrow(self):
@@ -27,42 +40,42 @@ class Media(ABC):
     @abstractmethod
     def return_media(self):
         pass
+
 
 class Book(Media):
-    def __init__(self, title, media_id, state):
-        super().__init__(title, media_id, state)
-        self.__return_period_days = 21  # 3 semaines pour un livre
+    def __init__(self, title, id, state, author):
+        super().__init__(title, id, state, author)
+
+    def borrow(self):
+        self._state = "borrowed"
+        return f"Book '{self._title}' borrowed"
+
+    def return_media(self):
+        self._state = "available"
+        return f"Book '{self._title}' returned"
+
+
+class Cd(Media):
+    def __init__(self, title, id, state, author):
+        super().__init__(title, id, state, author)
 
     def borrow(self):
         self.__state = "borrowed"
-        return f"Book '{self.__title}' borrowed"
+        return f"CD '{self._title}' borrowed"
 
     def return_media(self):
         self.__state = "available"
-        return f"Book '{self.__title}' returned"
+        return f"CD '{self._title}' returned"
 
-class CD(Media):
-    def __init__(self, title, media_id, state):
-        super().__init__(title, media_id, state)
-        self.__return_period_days = 7  # 1 semaine pour un CD
-
-    def borrow(self):
-        self.__state = "borrowed"
-        return f"CD '{self.__title}' borrowed"
-
-    def return_media(self):
-        self.__state = "available"
-        return f"CD '{self.__title}' returned"
 
 class Vinyl(Media):
-    def __init__(self, title, media_id, state):
-        super().__init__(title, media_id, state)
-        self.__return_period_days = 7  # 1 semaine pour un Vinyl
+    def __init__(self, title, id, state, author):
+        super().__init__(title, id, state, author)
 
     def borrow(self):
         self.__state = "borrowed"
-        return f"Vinyl '{self.__title}' borrowed"
+        return f"Vinyl '{self._title}' borrowed"
 
     def return_media(self):
         self.__state = "available"
-        return f"Vinyl '{self.__title}' returned"
+        return f"Vinyl '{self._title}' returned"
